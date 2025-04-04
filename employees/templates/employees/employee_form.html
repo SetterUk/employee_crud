@@ -1,0 +1,15 @@
+<!-- employees/templates/employees/employee_form.html -->
+{% extends 'employees/base.html' %}
+
+{% block content %}
+    <h1>{% if form.instance.pk %}Edit Employee{% else %}Add New Employee{% endif %}</h1>
+    <form method="post">
+        {% csrf_token %}
+        <table>
+            {{ form.as_table }}
+        </table>
+        <br>
+        <button type="submit" class="btn">Save</button>
+        <a href="{% url 'employee_list' %}" class="btn btn-warning">Cancel</a>
+    </form>
+{% endblock %}
